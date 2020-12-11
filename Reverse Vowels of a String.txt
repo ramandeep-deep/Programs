@@ -1,0 +1,50 @@
+Reverse Vowels of a String
+Write a function that takes a string as input and reverse only the vowels of a string.
+
+Example 1:
+
+Input: "hello"
+Output: "holle"
+Example 2:
+
+Input: "leetcode"
+Output: "leotcede"
+Note:
+The vowels does not include the letter "y".
+
+Solution:
+class Solution {
+    public String reverseVowels(String s) {
+        char a[] = s.toCharArray();
+    
+        int high = a.length-1;
+        int low=0;
+       
+        while(low<high)
+        
+        {
+            
+             if((a[low]=='a'||a[low]=='e'||a[low]=='i'||a[low]=='o'||a[low]=='u'||a[low]=='A'||a[low]=='E'||a[low]=='I'||a[low]=='O'||a[low]=='U') && (a[high]=='a'||a[high]=='e'||a[high]=='i'||a[high]=='o'||a[high]=='u'||a[high]=='A'||a[high]=='E'||a[high]=='I'|| a[high]=='O'||a[high]=='U'))
+        {
+            char temp = a[high];
+            a[high]=a[low];
+            a[low]=temp;
+             high--;
+            low++;
+        }
+        else if(a[low]=='a'||a[low]=='e'||a[low]=='i'||a[low]=='o'||a[low]=='u'||a[low]=='A'||a[low]=='E'||a[low]=='I'||a[low]=='O'
+                ||a[low]=='U')
+        {
+            high--;
+        }
+        else if (a[high]=='a'||a[high]=='e'||a[high]=='i'||a[high]=='o'||a[high]=='u'||a[high]=='A'||a[high]=='E'||a[high]=='I'|| a[high]=='O'||a[high]=='U'){
+            low++;
+        }else{
+               
+            high--;
+            low++;
+        }
+        }    
+    return new String(a);
+    }
+    }
